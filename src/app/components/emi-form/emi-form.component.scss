@@ -1,0 +1,10 @@
+.form-container {
+  margin: 10px;
+  padding-bottom: 12%;
+  .form-field {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

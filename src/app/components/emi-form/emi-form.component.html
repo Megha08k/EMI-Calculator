@@ -1,0 +1,45 @@
+<div class="form-container">
+  <form [formGroup]="emiForm" (ngSubmit)="onClculate()" class="form-field">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Loan Amount</mat-label>
+        <input type="number" matInput placeholder="Enter Loan Amount" formControlName="loanAmount" />
+        <mat-icon matSuffix>currency_rupee</mat-icon>
+        <mat-hint *ngIf="isFieldValid('loanAmount')">Required*</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Intrest rate</mat-label>
+        <input type="number" matInput placeholder="Enter intrest" formControlName="loanIntrest" />
+        <mat-icon matSuffix>%</mat-icon>
+        <mat-hint *ngIf="isFieldValid('loanIntrest')">Required*</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Loan Tenure</mat-label>
+        <input type="number" matInput placeholder="enter loan tenure" formControlName="loanTenure" />
+        <mat-icon matSuffix>date_range</mat-icon>
+        <mat-hint *ngIf="isFieldValid('loanTenure')">Required*</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Tenure Type</mat-label>
+        <mat-select formControlName="loanTenureType" placeholder="Select">
+          <mat-option [value]="true">Month</mat-option>
+          <mat-option [value]="false">Year</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div style="margin: 50px">
+      <button type="submit" mat-raised-button color="primary" [disabled]="emiForm.invalid">
+        Calculate
+      </button>
+    </div>
+  </form>
+  <emi-table [dataSource]="dataSource"></emi-table>
+</div>
+

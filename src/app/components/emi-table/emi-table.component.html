@@ -1,0 +1,42 @@
+<div style="margin-inline: 5%; margin-bottom:10px">
+  <table mat-table *ngIf="dataSource.length > 0; else noRecordFound" [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="month">
+      <th mat-header-cell *matHeaderCellDef> Month No. </th>
+      <td mat-cell *matCellDef="let element"> {{ element.month }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="payment">
+      <th mat-header-cell *matHeaderCellDef> Payment </th>
+      <td mat-cell *matCellDef="let element"> {{element.payment | number:'.1-2' | currency:'INR' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="principal">
+      <th mat-header-cell *matHeaderCellDef> Principal </th>
+      <td mat-cell *matCellDef="let element"> {{element.principal | number:'.1-2' | currency:'INR' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="interest">
+      <th mat-header-cell *matHeaderCellDef> Interest </th>
+      <td mat-cell *matCellDef="let element"> {{element.interest | number:'.1-2' | currency:'INR' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef> Balance </th>
+      <td mat-cell *matCellDef="let element"> {{element.balance | number:'.1-2' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="percentage">
+      <th mat-header-cell *matHeaderCellDef> percentage </th>
+      <td mat-cell *matCellDef="let element"> {{element.percentage | number:'.1-2'}}% </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<ng-template #noRecordFound>
+  <mat-card>
+    <mat-card-header align="center">
+      <mat-card-title>No Data Found!</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</ng-template>

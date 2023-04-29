@@ -13,6 +13,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
+import { EmiFormComponent } from './components/emi-form/emi-form.component';
+import { EmiTableComponent } from './components/emi-table/emi-table.component';
 
 
 const material = [
@@ -28,7 +30,9 @@ const material = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmiFormComponent,
+    EmiTableComponent
   ],
   imports: [
     material,
